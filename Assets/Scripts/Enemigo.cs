@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemigo : MonoBehaviour {
 	Rigidbody2D rg;
 	public float velocidadEnemigo=1f;
+	public GameObject animacion_explosion;
 	// Use this for initialization
 	void Start () {
 		rg = GetComponent<Rigidbody2D>();
@@ -15,8 +16,11 @@ public class Enemigo : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D objeto){
 		if (objeto.transform.tag == "Laser"){
-			Debug.Log ("laser");
-			Destroy(gameObject);
+			GameObject animacion = (GameObject) Instantiate(animacion_explosion, transform.position, transform.rotation);
+			velocidadEnemigo = 0;
+			Destroy(gameObject,0.5f);
+			Destroy(animacion,0.5f);
+		
 		}
 	}
 }

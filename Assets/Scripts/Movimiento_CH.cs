@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Movimiento_CH : MonoBehaviour {
 	public float  velocidad=1f;
+	public GameObject animacion_explosion;
 	Rigidbody2D rg;
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,9 @@ public class Movimiento_CH : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D objeto){
 		if (objeto.transform.tag == "Enemigo"){
-			Destroy(gameObject);
+			GameObject animacion = (GameObject) Instantiate(animacion_explosion, transform.position, transform.rotation);
+			Destroy(gameObject,1);
+			Destroy(animacion,1);
 		}
 	}
 	void Mover_Izq(float velocidad){ // mueve a la izquierda

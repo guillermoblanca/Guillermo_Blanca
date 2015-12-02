@@ -4,6 +4,7 @@ using System.Collections;
 public class Disparo : MonoBehaviour {
 	public GameObject proyectil; //laser que enlace con el prefab para disparar
 	public float fuerzaProyectil; //determina la fuerza con la que se lanza el proyectil
+
 	// Use this for initialization
 	void Start () {
 	
