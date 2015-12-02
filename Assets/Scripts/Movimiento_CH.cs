@@ -24,10 +24,16 @@ public class Movimiento_CH : MonoBehaviour {
 			Mover_Drch(0);
 		}
 	}
+	void OnTriggerEnter2D(Collider2D objeto){
+		if (objeto.transform.tag == "Enemigo"){
+			Destroy(gameObject);
+		}
+	}
 	void Mover_Izq(float velocidad){ // mueve a la izquierda
 		rg.velocity  = new Vector2 (-velocidad, rg.velocity.y); // utiliza la velocidad para que sea un movimiento fluido y no pegue saltos
 	}
 	void Mover_Drch(float velocidad){ // mueve a la derecha
 		rg.velocity  = new Vector2 (velocidad, rg.velocity.y);
 	}
+
 }
