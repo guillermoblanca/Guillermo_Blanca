@@ -13,6 +13,7 @@ public class Disparo : MonoBehaviour {
 			Debug.Log("Pulsado boton espacio");
 			GameObject nuevoProyectil = (GameObject) Instantiate(proyectil, transform.position, transform.rotation);// instancia un objeto en la posicion del jugador
 			nuevoProyectil.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaProyectil)); // anade una fuerza determinada al proyectil
+			Destroy(nuevoProyectil,2);
 		}
 	}
 }
