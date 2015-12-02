@@ -28,6 +28,7 @@ public class Movimiento_CH : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D objeto){
 		if (objeto.transform.tag == "Enemigo"){
 			GameObject animacion = (GameObject) Instantiate(animacion_explosion, transform.position, transform.rotation);
+			Invoke("Menu_Inicio",0.9f);
 			Destroy(gameObject,1);
 			Destroy(animacion,1);
 		}
@@ -38,5 +39,7 @@ public class Movimiento_CH : MonoBehaviour {
 	void Mover_Drch(float velocidad){ // mueve a la derecha
 		rg.velocity  = new Vector2 (velocidad, rg.velocity.y);
 	}
-
+	void Menu_Inicio(){
+		Application.LoadLevel("Menu");
+	}
 }
