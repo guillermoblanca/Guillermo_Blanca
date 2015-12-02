@@ -10,12 +10,12 @@ public class Movimiento_CH : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () { //funciones de moton
 		if (Input.GetKey(KeyCode.A)){
-			Mover_Izq(velocidad);
+			Mover_Izq(velocidad); // carga la velocidad
 		}
 		if (Input.GetKeyUp(KeyCode.A)){
-			Mover_Izq(0);
+			Mover_Izq(0); //reduce a cero la velocidad para parar en seco
 		}
 		if (Input.GetKey(KeyCode.D)){
 			Mover_Drch(velocidad);
@@ -24,10 +24,10 @@ public class Movimiento_CH : MonoBehaviour {
 			Mover_Drch(0);
 		}
 	}
-	void Mover_Izq(float velocidad){
-		rg.velocity  = new Vector2 (-velocidad, rg.velocity.y);
+	void Mover_Izq(float velocidad){ // mueve a la izquierda
+		rg.velocity  = new Vector2 (-velocidad, rg.velocity.y); // utiliza la velocidad para que sea un movimiento fluido y no pegue saltos
 	}
-	void Mover_Drch(float velocidad){
+	void Mover_Drch(float velocidad){ // mueve a la derecha
 		rg.velocity  = new Vector2 (velocidad, rg.velocity.y);
 	}
 }
