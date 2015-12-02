@@ -7,11 +7,13 @@ public class Enemigo : MonoBehaviour {
 	public GameObject animacion_explosion;
 	bool muerto;
 	Puntuacion pt;
+	AudioSource audio;
 	// Use this for initialization
 	void Start () {
 		muerto= false;
 		rg = GetComponent<Rigidbody2D>();
 		pt = GameObject.FindWithTag ("Puntuacion").GetComponent<Puntuacion>();
+		audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +21,7 @@ public class Enemigo : MonoBehaviour {
 		rg.velocity = new Vector2 (0, -velocidadEnemigo);
 		if (muerto){
 			pt.Suma_Puntos();
+			audio.Play();
 			muerto = false;
 		}
 	}
